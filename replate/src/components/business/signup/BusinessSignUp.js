@@ -1,105 +1,101 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import axios from "axios";
 import { withFormik, Form, Field } from "formik";
-import * as Yup from "yup";
+import { TextField } from 'formik-material-ui';
+import * as Yup from 'yup';
 import styled from "styled-components";
-import { makeStyles } from '@material-ui/core/styles';
-import CssBaseline from '@material-ui/core/CssBaseline';
-import Container from '@material-ui/core/Container';
-import Button from '@material-ui/core/Button';
-import TextField from '@material-ui/core/TextField';
 
 
-const useStyles = makeStyles(theme => ({
-    container: {
-      display: 'flex',
-      flexWrap: 'wrap',
-    },
-    textField: {
-      marginLeft: theme.spacing(1),
-      marginRight: theme.spacing(1),
-      width: 200,
-    },
-  }));
+const SignUpStyles = styled.div`
 
-const BusinessFormStyles = styled.div`
 
-display: flex;
-justify-content: center;
-align-items: center;
-height: 100vh;
-
-.Business-Signup-Container {
+.divContainerOuter {
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 100%;
-}
+    height: 98vh;
 
-.FormStyle {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 60%;
-    width: 50%;
-    border: 1px solid black;
+    .divContainerInner {
 
-    .Label-Container {
         display: flex;
+        flex-direction: column;
         justify-content: center;
         align-items: center;
-        background: #53131E;
-        width: 100%;
-        height: 10%;
 
-        label {
-            color: #E7D7C1;
-            font-size: 2rem;
-        }
-    }
+        height: 60%;
+        width: 40%;
+        border: 1px solid black;
 
-   
-
-    .Content-Row {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-direction: row;
-        width: 100%;
-        height: 100%;
-
-        .Content-Col-One {
-            width: 50%;
-            margin: 10px;
-
-            .formField {
-                height: 30px;
-                width: 70%;
-                margin: 5px;
-            }
-        }
-
-        .Content-Col-Two {
-            width: 50%;
-            margin: 20px;
-
-            .formField {
-                width: 90%;
-                height: 30px;
-                margin: 5px;
-            }
-        }
-
-        Button {
-            color: black;
+        .spanContainer {
+            width: 100%;
+            height: 10%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-bottom: 1px solid lightgrey;
             background: white;
-            width: 10rem;
-            margin: 15px;
+        
+            span {
+                font-weight: 900;
+                font-size: 2rem;
+            }
+        }
+
+        Form {
+
+            .formLabel {
+                font-size: 2rem;
+            }
+
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            height: 100%;
+
+            .row {
+                display: flex;
+                flex-direction: row;
+                width: 100%;
+                height: 70%;
+
+
+                .userSeparator {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                width: 50%;
+
+                .fieldStyles {
+                    margin: 1.2rem;
+                    width: 70%;
+                }
+               
+            }
+
+            .businessSeparator {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                width: 50%;
+
+                .fieldStyles {
+                    margin: 1.2rem;
+                    width: 70%;
+                }
+            }
+
+            }
+
+        
+     
         }
 
     }
+
 }
 
 
@@ -107,75 +103,76 @@ height: 100vh;
 
 
 
+const BusinessSignUp = () => {
 
- const BusinessSignUp = ({ values, errors, touched, status}) => {
-     const [users, setUsers] = useState( [] )
-
-useEffect( () => {
-    status && setUsers(users => [...users, status]);
-}, [status] );
-
-const classes = useStyles();
 
     return (
-        <React.Fragment>
-        <CssBaseline />
-        <BusinessFormStyles>
-        <Container className="Business-Signup-Container" maxWidth="lg">
-        <Form className="FormStyle">
-        <div className="Label-Container">
-        <label>Thank you for volunteering!</label>
-        </div>
-       
 
-        <div className="Content-Row">
+        <SignUpStyles>
+        <div className="divContainerOuter">
+        <div className="divContainerInner">
+        <div className="spanContainer">
+        <span>Thank you for volunteering!</span>
+        </div>
+        <Form>
+        <label className="formLabel">Sign up as a business.</label>
 
-        <div className="Content-Col-One">
-        <div className="Inner-Top-Content">
-        <TextField id="outlined-basic" className={classes.textField} type="text" name="username" label="Username" margin="normal" variant="outlined"/>
-        <TextField id="outlined-basic" className={classes.textField} type="password" name="password" label="Password" margin="normal" variant="outlined" />
-        <TextField id="outlined-basic" className={classes.textField} type="password" name="confirm-password" label="Confirm Password" margin="normal" variant="outlined" />
+        <div className="row">
+        <div className="userSeparator">
+        <Field className="fieldStyles" component={TextField} type="text" name="username" label="Username" />
+        <Field className="fieldStyles" component={TextField} type="password" name="password" label="Password" />
+        <Field className="fieldStyles" component={TextField} type="text" name="phoneNumber" label="Phone Number" />
+        </div>
+
+        <div className="businessSeparator">
+        <Field className="fieldStyles" component={TextField} type="text" name="businessName" label="Business Name" />
+        <Field className="fieldStyles" component={TextField} type="text" name="businessAddress" label="Business Address" />
+        <Field className="fieldStyles" component={TextField} type="number" name="zipCode" label="Zip Code" />
         </div>
         </div>
-        <div className="Content-Col-Two">
-        <div className="Inner-Bottom-Content">
-        <TextField id="outlined-basic" className={classes.textField} type="text" name="business-name" label="Business Name" margin="normal" variant="outlined" />
-        <TextField id="outlined-basic" className={classes.textField} type="text" name="business-address" label="Business Address" margin="normal" variant="outlined" />
-        </div>
-        </div>
-        </div>
-        <Button variant="contained" color="primary" className={classes.button}>Sign Up!</Button>
+
+        <button type="submit">Submit</button>
+
         </Form>
-        </Container>
-        </BusinessFormStyles>
-        </React.Fragment>
+
+        </div>
+        </div>
+        </SignUpStyles>
     );
 };
 
-
-const FormikBusinessSignupForm = withFormik({
-    mapPropsToValues({ username, password, phoneNumber, businessName, businessAddress}) {
-
+const FormikBusinessSignUp = withFormik({
+    mapPropsToValues({username, password, phoneNumber, businessName, businessAddress, zipCode}) {
         return {
             username: username || "",
             password: password || "",
             phoneNumber: phoneNumber || "",
             businessName: businessName || "",
-            businessAddress: businessAddress || ""
-        };
+            businessAddress: businessAddress || "",
+            zipCode: zipCode || ""
+        }
     },
 
-  
-    handleSubmit(values, { setStatus }) {
-    axios
-    .post("https://reqres.in/api/users/", values)
-    .then(response => {
-        setStatus(response.data);
-        console.log(response.data)
-    })
-    .catch(error => console.log(`I'm sorry there seems to be an error! ${error}`));
-    }
+    validationSchema: Yup.object().shape(
+        {
+            username: Yup.string().required(),
+            password: Yup.string().required(),
+            phoneNumber: Yup.string().required(),
+            businessName: Yup.string().required(),
+            businessAddress: Yup.string().required(),
+            zipCode: Yup.string().required()
+        }
+    ),
 
+    handleSubmit(values, {setStatus}) {
+        axios
+        .post("https://reqres.in/api/users/", values)
+        .then(res => {
+          setStatus(res.data);
+          console.log(res.data);
+        })
+        .catch(error => console.log(error.response));
+    }
 })
 
-export default FormikBusinessSignupForm(BusinessSignUp)
+export default FormikBusinessSignUp(BusinessSignUp);
