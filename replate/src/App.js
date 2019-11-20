@@ -22,11 +22,6 @@ function App() {
 
   return (
     <div className="App">
-
-
-    <BusinessPickUp />
-
-
       <Login />
     </div>
   );
