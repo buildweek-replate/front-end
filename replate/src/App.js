@@ -7,6 +7,9 @@ import BusinessPickUp from "./components/business/dashboard/BusinessPickup";
 
 
 
+import Login from './components/Login';
+import './App.css';
+
 
 function App() {
 
@@ -19,6 +22,7 @@ function App() {
     <BusinessPickUp />
 
 
+      <Login />
     </div>
   );
 }
