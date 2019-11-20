@@ -11,9 +11,11 @@ const store = createStore(rootReducer);
 
 
 ReactDOM.render(
-    <Provider store={store}>
-        <App />
-    </Provider>, 
+    <Router>
+        <Provider store={store}>
+            <App />
+        </Provider>
+    </Router>, 
     document.getElementById('root')
     
 );
@@ -25,10 +27,5 @@ ReactDOM.render(
 // Learn more about service workers: https://bit.ly/CRA-PWA
 serviceWorker.unregister();
 
-ReactDOM.render(
-    <Router>
-        <App />
-        </Router>,
-        document.getElementById('root')
-);
+
 
