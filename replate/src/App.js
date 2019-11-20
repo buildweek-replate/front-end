@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './App.css';
 
 import BusinessSignUp from "./components/business/signup/BusinessSignUp";
@@ -12,7 +12,11 @@ import './App.css';
 
 
 function App() {
-
+  const [userData, setUserData] = useState([{}]);
+  const [pendingOrders, setPendingOrders] = useState([{}]);
+  const [assignedOrders, setAssignedOrders] = useState([{}]);
+  const [completedOrders, setCompletedOrders] = useState([{}]);
+  
 
 
   return (
