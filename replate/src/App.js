@@ -1,9 +1,7 @@
 import React from 'react';
 import './App.css';
 
-import BusinessSignUp from "./components/business/signup/BusinessSignUp";
-import Dashboard from "./components/business/dashboard/Dashboard";
-import BusinessPickUp from "./components/business/dashboard/BusinessPickup";
+import BusinessProfile from "./components/business/BusinessProfile";
 
 
 
@@ -16,7 +14,7 @@ function App() {
     <div className="App">
 
 
-    <BusinessPickUp />
+    <BusinessProfile />
 
 
     </div>

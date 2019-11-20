@@ -1,8 +1,8 @@
 import React from "react";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
-import BusinessProfile from "./BusinessProfile";
-import BusinessPickup from "./BusinessPickup";
+import BusinessProfile from "./components/business/BusinessProfile";
+import BusinessPickup from "./components/business/BusinessPickup";
 
 import styled from "styled-components";
 
