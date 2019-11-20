@@ -4,9 +4,9 @@ import { Route } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import './App.css';
 
-import BusinessSignUp from "./components/business/signup/BusinessSignUp";
-import Dashboard from "./components/business/dashboard/Dashboard";
-import BusinessPickUp from "./components/business/dashboard/BusinessPickup";
+import BusinessSignUp from "./components/business/BusinessSignUp";
+import Dashboard from "./components/Dashboard";
+import BusinessPickUp from "./components/business/BusinessPickup";
 
 import Login from './components/Login';
 
