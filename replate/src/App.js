@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import './App.css';
 //Components
 import BusinessProfile from './components/business/BusinessProfile';
-import BusinessSignUp from './components/business/BusinessSignup';
+import BusinessSignUp from './components/business/BusinessSignUp';
 import Dashboard from './components/Dashboard';
 import BusinessPickUp from './components/business/BusinessPickup';
 import UniversalSignUp from './components/UniversalSignUp';
