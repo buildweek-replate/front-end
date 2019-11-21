@@ -1,22 +1,12 @@
 import React, {useState, useEffect} from "react"; 
 import Axios from "axios";
 import styled from "styled-components";
-import { makeStyles } from '@material-ui/core/styles';
-import Button from '@material-ui/core/Button';
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import Dashboard from "../../Dashboard";
 
 
 
-const useStyles = makeStyles(theme => ({
-    button: {
-      margin: theme.spacing(1),
-     
-    },
-    input: {
-      display: 'none',
-    },
-  }));
+
 
 const BusinessProfileStyles = styled.div`
 
@@ -94,6 +84,13 @@ const BusinessProfileStyles = styled.div`
             align-items: center;
             height: 10%;
             width: 100%;
+
+            .dashboard-button {
+                padding: 0.4rem;
+                margin: 1rem;
+                background: 
+
+            }
         }
     }
 }
@@ -104,7 +101,7 @@ const BusinessProfileStyles = styled.div`
 
 
 const BusinessProfile = props => {
-    const classes = useStyles();
+    
 
     const [businessUser, setBusinessUser] = useState([])
     useEffect(() => {
@@ -130,12 +127,10 @@ const BusinessProfile = props => {
         <div className="container-header">
         <Router>
         <Switch>
-        <Route path="/dashboard" component={Dashboard} />
+        <Route exact path="/dashboard" component={Dashboard} />
         </Switch>
         <Link to="/dashboard">
-        <Button className={classes.button}>
-        Dashboard
-      </Button>
+        <button className="dashboard-button">Dashboard</button>
         </Link>
         </Router>
         </div> 
