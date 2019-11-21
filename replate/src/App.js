@@ -3,6 +3,7 @@ import { Route } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import './App.css';
 //Components
+import BusinessProfile from './components/business/BusinessProfile';
 import BusinessSignUp from './components/business/BusinessSignup';
 import Dashboard from './components/Dashboard';
 import BusinessPickUp from './components/business/BusinessPickup';
@@ -25,7 +26,7 @@ function App() {
 
 
       <Login />
-      <PickupList list={savedList} />
+      
       <Route path="/universalSignup" component= {UniversalSignUp} />
       
         <Route exact path="/Dashboard" component= {Dashboard} />
