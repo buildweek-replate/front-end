@@ -2,8 +2,8 @@
 
 body {
   margin: 0;
-  font-family: 'Averia Serif Libre', cursive;
-  font-family: 'Oregano', cursive;
+  font-family: 'Averia Serif Libre', normal;
+  text-decoration: none
 }
 
 .App {

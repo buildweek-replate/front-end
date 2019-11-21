@@ -16,6 +16,14 @@ function App() {
 
   return (
     <div className="App">
+
+
+
+    <BusinessProfile />
+
+
+
+
       <Login />
       <PickupList list={savedList} />
       <Route path="/universalSignup" component= {UniversalSignUp} />

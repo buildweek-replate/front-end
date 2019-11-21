@@ -3,9 +3,8 @@ import { withFormik, Form, Field } from "formik";
 import * as Yup from "yup";
 import axios from "axios";
 import styled from "styled-components";
-import DateFnsUtils from '@date-io/date-fns';
-import { DateTimePicker, MuiPickersUtilsProvider
-} from '@material-ui/pickers';
+
+
 
 
 const FormStyles = styled.div`
@@ -71,17 +70,10 @@ const FormStyles = styled.div`
 `;
 
 
+
 const BusinessPickup = ({ status }) => {
   const [entries, setEntries] = useState([]);
-  const [selectedDate, setSelectedDate] = useState(new Date());
-
-  // handling data changes **start
-
-  const handleDateChange = date => {
-    setSelectedDate(date);
-  };
-
-// handling data changes **end
+  
 
   useEffect(() => {
     status && setEntries(entries => [...entries, status]);
@@ -109,13 +101,7 @@ const BusinessPickup = ({ status }) => {
             placeholder="Quantity"
           />
 
-          <div className="date-container">
-          <span>Choose a date and time for this request.</span>
-          <MuiPickersUtilsProvider utils={DateFnsUtils}>
-          <DateTimePicker value={selectedDate} onChange={handleDateChange} />
-          </MuiPickersUtilsProvider>
-          </div>
-         
+    
 
           <button as="button">Create Request</button>
         </Form>
@@ -128,6 +114,7 @@ const BusinessPickup = ({ status }) => {
               <div key={e.id} className="return-inner-container">
                 <span>Food Name: {e.food}</span>
                 <span>Food Quantity: {e.quantity}</span>
+                <span>When: {e.date}</span>
               </div>
             </div>
           ))}
@@ -138,10 +125,11 @@ const BusinessPickup = ({ status }) => {
 };
 
 const FormikBusinessPickup = withFormik({
-  mapPropsToValues({ food, quantity }) {
+  mapPropsToValues({ food, quantity, date }) {
     return {
       food: food || "",
-      quantity: quantity || ""
+      quantity: quantity || "",
+      date: date || ""
     };
   },
 
