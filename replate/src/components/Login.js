@@ -4,8 +4,10 @@ import { axiosWithAuth } from '../utils/axiosWithAuth';
 
 
 
+
 const Login = () => {
     return (
+        
         <div>
             <h1>Login To Your Replate Account</h1>
             <form>
@@ -16,6 +18,7 @@ const Login = () => {
                 <input type="text" name="password" id="password" />
             </form>
         </div>
+    
     )
 }
 
