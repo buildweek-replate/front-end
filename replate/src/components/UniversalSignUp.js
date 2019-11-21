@@ -3,21 +3,21 @@ import axios from 'axios';
 import Route from 'react-router-dom';
 import { Link } from 'react-router-dom';
 
-const SignUp =  props => {
+const UniversalSignUp = props => {
     const [user, setUser] = useState([])
     useEffect(() => {
         const postUser = () => {
             axios.post ('/user', {
                 userType: ""
             })
-            .then(function (response) {
+            .then(function (response)  {
                 console.log(response);
             }
             .catch(error => {
                 console.error('Server Error', error);
-            });
+            }))
         }
     })
 }
 
-export default SignUp;
+export default UniversalSignUp;

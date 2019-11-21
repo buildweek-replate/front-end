@@ -3,31 +3,27 @@ import ReactDOM from 'react-dom';
 import { BrowserRouter as Router } from 'react-router-dom';
 import './index.css';
 import App from './App';
+import { createStore } from 'redux';
+import { Provider } from 'react-redux';
+import rootReducer from './reducers/rootReducer';
+
+const store = createStore(rootReducer);
 
 
 
 
 
 ReactDOM.render(
-    <Router>
-<<<<<<< HEAD
-        <App />
-=======
-        <Provider store={store}>
+    <Provider store={store}>
+        <Router>
             <App />
-        </Provider>
->>>>>>> 3b912ad2da1f2e43828c52f54cffaf5ae62afb99
-    </Router>, 
-    document.getElementById('root')
-    
+        </Router>
+    </Provider>, 
+    document.getElementById('root')  
 );
 
 
 
 
 
-<<<<<<< HEAD
-
-=======
->>>>>>> 3b912ad2da1f2e43828c52f54cffaf5ae62afb99
 
