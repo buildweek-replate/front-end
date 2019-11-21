@@ -7,7 +7,7 @@ import BusinessSignUp from './components/business/BusinessSignUp';
 import BusinessDashboard from './components/Dashboard';
 import BusinessPickUp from './components/business/BusinessPickup';
 import UniversalSignUp from './components/UniversalSignUp';
-import Login from './components/Login';
+import UserLogin from './components/UserLogin';
 
 
 
@@ -17,7 +17,7 @@ function App() {
   return (
     <div className="App">
       <Switch>
-        <Route exact path = '/' component={Login} />
+        <Route exact path = '/' component={UserLogin} />
         <Route exact path = '/dashboard' component={BusinessDashboard} />
         <Route exact path = '/profile' component={BusinessProfile} />
       </Switch>  
