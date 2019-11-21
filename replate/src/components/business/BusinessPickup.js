@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import { withFormik, Form, Field } from "formik";
-import * as Yup from "yup";
 import axios from "axios";
 import styled from "styled-components";
 
@@ -115,7 +114,6 @@ const BusinessPickup = ({ status }) => {
               <div key={e.id} className="return-inner-container">
                 <span>Food Name: {e.food}</span>
                 <span>Food Quantity: {e.quantity}</span>
-                <span>When: {e.date}</span>
               </div>
             </div>
           ))}
@@ -126,18 +124,14 @@ const BusinessPickup = ({ status }) => {
 };
 
 const FormikBusinessPickup = withFormik({
-  mapPropsToValues({ food, quantity, date }) {
+  mapPropsToValues({ food, quantity }) {
     return {
       food: food || "",
-      quantity: quantity || "",
-      date: date || ""
+      quantity: quantity || ""
+  
     };
   },
 
-  validationSchema: Yup.object().shape({
-    food: Yup.string().required("Please enter your name!"),
-    quantity: Yup.string().required("Please enter your email!")
-  }),
   handleSubmit(values, { setStatus }) {
     axios
       .post("https://reqres.in/api/users/", values)

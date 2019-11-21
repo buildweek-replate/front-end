@@ -18,19 +18,7 @@ function App() {
   return (
     <div className="App">
 
-
-
-    <BusinessProfile />
-
-
-
-
-      <Login />
-      
-      <Route path="/universalSignup" component= {UniversalSignUp} />
-      
-        <Route exact path="/Dashboard" component= {Dashboard} />
-        <Route render={() => <h1>Page not found</h1>} />
+<BusinessProfile />
       
     </div>
   );
