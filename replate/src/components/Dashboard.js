@@ -1,6 +1,5 @@
 import React from "react";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
-
+import { Link } from 'react-router-dom';
 import BusinessProfile from "./business/BusinessProfile";
 import BusinessPickup from "./business/BusinessPickup";
 
@@ -40,12 +39,6 @@ const BusinessDashboard = () => {
   return (
     <DashStyles>
       <div className="dashboard-container">
-        <Router>
-          <Switch>
-            <Route path="/profile" component={BusinessProfile} />
-            <Route path="/create-a-request" component={BusinessPickup} />
-          </Switch>
-
           <div className="link-container">
             <Link to="/profile">
               <div className="button-container">
@@ -61,7 +54,6 @@ const BusinessDashboard = () => {
               </div>
             </Link>
           </div>
-        </Router>
       </div>
     </DashStyles>
   );
