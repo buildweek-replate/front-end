@@ -164,14 +164,14 @@ const BusinessProfile = () => {
         <div className="divContainerOuter">
         <div className="divContainerInner">
         <div className="container-header">
-        <Router>
-        <Switch>
-        <Route exact path="/dashboard" component={Dashboard} />
-        </Switch>
+        
+        
+        
+        
         <Link to="/dashboard">
-        <button className="dashboard-button">Dashboard</button>
+            <button className="dashboard-button">Dashboard</button>
         </Link>
-        </Router>
+        
         </div> 
         <div className="profile-wrapper">
         <h2 className="profile-h2"><span>{businessUser.first_name}'s</span> Business Information</h2>
