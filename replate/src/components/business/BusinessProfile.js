@@ -100,7 +100,7 @@ const BusinessProfileStyles = styled.div`
 
 
 
-const BusinessProfile = props => {
+const BusinessProfile = () => {
     
 
     const [businessUser, setBusinessUser] = useState([])

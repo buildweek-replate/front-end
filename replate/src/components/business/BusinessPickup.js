@@ -2,10 +2,12 @@ import React, { useState, useEffect } from "react";
 import { withFormik, Form, Field } from "formik";
 import axios from "axios";
 import styled from "styled-components";
-
-
-
-
+import DateFnsUtils from "@date-io/date-fns";
+import {
+  MuiPickersUtilsProvider,
+  KeyboardTimePicker,
+  KeyboardDatePicker
+} from "@material-ui/pickers";
 
 const FormStyles = styled.div`
   display: flex;
@@ -19,7 +21,7 @@ const FormStyles = styled.div`
     justify-content: center;
     align-items: center;
     width: 30rem;
-    height: 15rem;
+    height: 25rem;
     margin: 2rem;
     border: 1px solid lightgrey;
 
@@ -45,16 +47,23 @@ const FormStyles = styled.div`
         margin: 10px;
       }
     }
+
+    .date-container {
+      margin: 1rem;
+      
+      .pickerField {
+        margin: 1rem;
+      }
+      
+    }
   }
 
   .return-main-container {
-    
     .return-outer-container {
       border: 1px solid black;
       background: lightgrey;
       margin: 1rem;
       .return-inner-container {
-        
         display: flex;
         flex-direction: row;
         justify-content: space-around;
@@ -69,11 +78,13 @@ const FormStyles = styled.div`
   }
 `;
 
-
-
 const BusinessPickup = ({ status }) => {
   const [entries, setEntries] = useState([]);
-  
+  const [selectedDate, setSelectedDate] = useState();
+
+  const handleDateChange = date => {
+    setSelectedDate(date);
+  };
 
   useEffect(() => {
     status && setEntries(entries => [...entries, status]);
@@ -86,7 +97,6 @@ const BusinessPickup = ({ status }) => {
           <label className="formLabel">Create a pickup request</label>
 
           <Field
-          
             className="formField"
             type="text"
             name="food"
@@ -94,19 +104,33 @@ const BusinessPickup = ({ status }) => {
           />
 
           <Field
-          
             className="formField"
             type="number"
             name="quantity"
             placeholder="Quantity"
           />
 
-    
+          <div className="date-container">
+            <MuiPickersUtilsProvider utils={DateFnsUtils}>
+              <Field
+              className="pickerField"
+                label="What day?"
+                value={selectedDate}
+                onChange={handleDateChange}
+                component={KeyboardDatePicker}
+              />
+              <Field
+              className="pickerField"
+                label="What time?"
+                value={selectedDate}
+                onChange={handleDateChange}
+                component={KeyboardTimePicker}
+              />
+            </MuiPickersUtilsProvider>
+          </div>
 
           <button as="button">Create Request</button>
         </Form>
-
-     
 
         <div className="return-main-container">
           {entries.map(e => (
@@ -128,7 +152,6 @@ const FormikBusinessPickup = withFormik({
     return {
       food: food || "",
       quantity: quantity || ""
-  
     };
   },
 
