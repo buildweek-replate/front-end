@@ -33,6 +33,18 @@ const BusinessProfileStyles = styled.div`
             flex-direction: column;
             justify-content: center;
             align-items: center;
+
+
+            .profile-h2  {
+                line-height: 130%;
+                border-bottom: 1px solid black;
+                font-weight: 400;
+
+                span {
+                    color: red;
+                    font-weight: 900;
+                }
+            }
            
 
 
@@ -40,7 +52,8 @@ const BusinessProfileStyles = styled.div`
            
            display: flex;
            flex-direction: row;
-           align-items: flex-start;
+           justify-content: center;
+           align-items: center;
            width: 90%;
            margin: 2rem;
            padding: 1rem;
@@ -51,10 +64,13 @@ const BusinessProfileStyles = styled.div`
                justify-content: center;
                align-items: flex-start;
                width: calc(90% / 2);
+               border: 1px solid black;
 
                .labels {
                    font-size: 1.2rem;
                    margin: 0.5rem;
+                   font-weight: 900;
+                 
                }
            }
 
@@ -64,6 +80,7 @@ const BusinessProfileStyles = styled.div`
                justify-content: center;
                align-items: center;
                width: calc(90% / 2);
+               border: 1px solid black;
 
                .user-span {
                    font-size: 1.2rem;
@@ -77,7 +94,7 @@ const BusinessProfileStyles = styled.div`
    
 
         .container-header {
-            background: lightgrey;
+            background: #53131E;
             border-bottom: 1px solid black;
             display: flex;
             justify-content: flex-start;
@@ -88,9 +105,31 @@ const BusinessProfileStyles = styled.div`
             .dashboard-button {
                 padding: 0.4rem;
                 margin: 1rem;
-                background: 
+                color: #F7EDF0;
+                background: #1E2D24;
+                border: 1px solid white;
+               
+
+                &:hover {
+                    border: 1px solid black;
+                    background: white;
+                    color: black;
+                }
 
             }
+        }
+
+        .delete-button {
+            background: #1E2D24;
+            width: 15rem;
+            height: 2rem;
+            color: white;
+
+            &:hover {
+               
+                font-weight: 900;
+            }
+
         }
     }
 }
@@ -100,7 +139,7 @@ const BusinessProfileStyles = styled.div`
 
 
 
-const BusinessProfile = props => {
+const BusinessProfile = () => {
     
 
     const [businessUser, setBusinessUser] = useState([])
@@ -135,7 +174,7 @@ const BusinessProfile = props => {
         
         </div> 
         <div className="profile-wrapper">
-        <h2>Business Information</h2>
+        <h2 className="profile-h2"><span>{businessUser.first_name}'s</span> Business Information</h2>
         <div className="profile-container">
         <div className="profile-col-1">
         <span className="labels">Business Name:</span>
@@ -148,7 +187,7 @@ const BusinessProfile = props => {
         <span className="user-span">{businessUser.first_name}</span>
         </div>
         </div>
-        <button>Delete business account</button>
+        <button className="delete-button">Delete business account</button>
         </div>
         </div>
         </div>
