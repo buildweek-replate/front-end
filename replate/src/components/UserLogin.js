@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { axiosWithAuth } from '../utils/axiosWithAuth';
-import { Redirect } from 'react-router-dom';
+import { Redirect, Link } from 'react-router-dom';
 
 
 
@@ -53,6 +53,8 @@ const UserLogin = (props) => {
                 />
                 <button type="submit">Login</button>
             </form>
+            <h2>New Here?</h2>
+            <Link to ='/signup'>SignUp</Link>
         </div>
     
     )
