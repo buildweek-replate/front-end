@@ -4,9 +4,13 @@ import { Route } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import './App.css';
 
+
+import BusinessProfile from "./components/business/BusinessProfile";
+
 import BusinessSignUp from "./components/business/BusinessSignUp";
 import Dashboard from "./components/Dashboard";
 import BusinessPickUp from "./components/business/BusinessPickup";
+
 
 import Login from './components/Login';
 
@@ -22,6 +26,14 @@ function App() {
 
   return (
     <div className="App">
+
+
+
+    <BusinessProfile />
+
+
+
+
       <Login />
     </div>
   );
