@@ -89,13 +89,13 @@ const BusinessDashboard = () => {
         <div className="dashboard-container-inner">
           <Router>
             <Switch>
-              <Route path="/profile" component={BusinessProfile} />
-              <Route path="/create-a-request" component={BusinessPickup} />
+              <Route  path="/profile" component={BusinessProfile} />
+              <Route  path="/create-a-request" component={BusinessPickup} />
             </Switch>
 
             <div className="link-col-1">
               <div className="link-container">
-                <Link to="/profile">
+                <Link exact to="/profile">
                   <div className="button-container">
                     <button>Profile</button>
                   </div>
@@ -105,7 +105,7 @@ const BusinessDashboard = () => {
 
             <div className="link-col-2">
               <div className="link-container">
-                <Link to="/create-a-request">
+                <Link exact to="/create-a-request">
                   <div className="button-container">
                     <button>Create a Request</button>
                   </div>
