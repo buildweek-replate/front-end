@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from "react"; 
-import Axios from "axios";
+import { axiosWithAuth } from '../../utils/axiosWithAuth';
 import styled from "styled-components";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import Dashboard from "../../Dashboard";
@@ -145,7 +145,7 @@ const BusinessProfile = () => {
     const [businessUser, setBusinessUser] = useState([])
     useEffect(() => {
      
-            Axios
+            axiosWithAuth()
             .get ("https://reqres.in/api/users/2")
             .then(response => {
                 setBusinessUser(response.data.data);
@@ -157,6 +157,17 @@ const BusinessProfile = () => {
             });
         
     }, [])
+
+    const deleteUser= () => {        axiosWithAuth()
+        .delete ('users/2')
+        .then(response => {
+            console.log(response)
+            
+        })
+        .catch(error => {
+            console.error('Server Error', error);
+        });
+    }
 
 
     return (
@@ -187,7 +198,7 @@ const BusinessProfile = () => {
         <span className="user-span">{businessUser.first_name}</span>
         </div>
         </div>
-        <button className="delete-button">Delete business account</button>
+        <button onClick={deleteUser} className="delete-button">Delete business account</button>
         </div>
         </div>
         </div>

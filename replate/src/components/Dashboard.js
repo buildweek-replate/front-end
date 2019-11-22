@@ -1,5 +1,6 @@
 import React from "react";
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
+import { axiosWithAuth } from '../utils/axiosWithAuth';
 import BusinessProfile from "./business/BusinessProfile";
 import BusinessPickup from "./business/BusinessPickup";
 
@@ -82,6 +83,7 @@ const DashStyles = styled.div`
 `;
 
 const BusinessDashboard = () => {
+
   return (
     <DashStyles>
       <div className="dashboard-container">
