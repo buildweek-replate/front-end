@@ -1,5 +1,5 @@
 import React from "react";
-import axios from "axios";
+import { axiosWithAuth } from '../../utils/axiosWithAuth';
 import { withFormik, Form, Field } from "formik";
 import { TextField } from 'formik-material-ui';
 import * as Yup from 'yup';
@@ -165,8 +165,8 @@ const FormikBusinessSignUp = withFormik({
     ),
 
     handleSubmit(values, {setStatus}) {
-        axios
-        .post("https://reqres.in/api/users/", values)
+        axiosWithAuth()
+        .post('users', values)
         .then(res => {
           setStatus(res.data);
           console.log(res.data);
